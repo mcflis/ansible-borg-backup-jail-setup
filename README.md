@@ -14,6 +14,24 @@ pkg update
 pkg install -y git
 ```
 
+2. Clone this repository into `ansible-setup`
+
+```sh
+git clone https://github.com/mcflis/ansible-borg-backup-jail-setup.git ansible-setup
+```
+
+3. Run the pre-ansible install script
+
+```sh
+ansible-setup/preansible/install.sh
+```
+
+4. Ensure ansible is working
+
+```sh
+ansible -m ping -c local localhost
+```
+
 ## Resources:
 
 - [1] https://www.cyberciti.biz/faq/how-to-enable-sshd-on-freebsd-server-jail/
