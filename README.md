@@ -32,6 +32,12 @@ ansible-setup/preansible/install.sh
 ansible -m ping -c local localhost
 ```
 
+5. Run ansible playbook
+
+```sh
+ansible-playbook ansible-setup/ansible/main.yml
+```
+
 ## Resources:
 
 - [1] https://www.cyberciti.biz/faq/how-to-enable-sshd-on-freebsd-server-jail/
