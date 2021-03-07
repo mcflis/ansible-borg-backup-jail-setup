@@ -23,3 +23,11 @@
         update_password: always
         state: present
       when: borg_user_password is defined and borg_user_salt is defined
+
+    - name: Ensure borg user can sudo without password
+      copy:
+        dest: "/usr/local/etc/sudoers.d/{{ borg_user }}"
+        owner: root
+        group: wheel
+        mode: "0644"
+        content: "{{ borg_user }} ALL=(ALL) NOPASSWD: ALL"
