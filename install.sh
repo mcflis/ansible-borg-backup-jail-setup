@@ -38,3 +38,7 @@ echo ""
 echo "[Stage] ansible-ping"
 ansible-playbook "$tempdir/main.yml"
 echo ""
+
+echo "[Stage] cleanup"
+rm -rf "$tempdir"
+echo ""
