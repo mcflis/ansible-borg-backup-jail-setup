@@ -1,2 +1,8 @@
 # ansible-borg-backup-jail-setup
-Utilities to setup a TrueNAS jail for running borg backup as client
+A repo for setting up a TrueNAS jail for running borg backup as client.
+
+The scripts and playbooks in this repository are meant to be executed in the freebsd jail.
+
+
+## Resources:
+- [1] https://www.cyberciti.biz/faq/how-to-enable-sshd-on-freebsd-server-jail/
