@@ -1,0 +1,17 @@
+---
+- name: Setup jail for borg backup
+  hosts: all
+  connection: local
+  handlers:
+    - name: Restart sshd
+      service:
+        state: restarted
+        name: sshd
+  tasks:
+    - name: Ensure sshd is enabled in conf
+      lineinfile:
+        state: present
+        path: /etc/rc.conf
+        regexp: "^#?\\s*?sshd_enable="
+        line: "sshd_enable=\"YES\""
+      notify: Restart sshd
