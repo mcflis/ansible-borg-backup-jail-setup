@@ -2,10 +2,12 @@
 - name: Setup jail for borg backup
   hosts: localhost
   connection: local
-  vars:
-    borg_user: borg
-    borg_user_password: borg
-    borg_user_salt: borg
+  pre_tasks:
+    - name: Include vars
+      include_tasks: "{{ item }}"
+      with_first_found:
+        - "../vars.yml"
+        - "../default.vars.yml"
   tasks:
     - name: Ensure sshd is started and enabled
       service:
@@ -17,7 +19,7 @@
       user:
         name: "{{ borg_user }}"
         password: "{{ borg_user_password | password_hash('sha512', borg_user_salt) }}"
-        shell: /usr/local/bin/bash
+        shell: "{{ borg_user_shell }}"
         groups:
           - wheel
         update_password: always
