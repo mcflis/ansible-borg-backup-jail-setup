@@ -1,6 +1,6 @@
 ---
 - name: Setup jail for borg backup
-  hosts: all
+  hosts: localhost
   connection: local
   handlers:
     - name: Restart sshd
