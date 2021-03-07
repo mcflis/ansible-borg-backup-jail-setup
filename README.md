@@ -11,7 +11,7 @@ The scripts and playbooks in this repository are meant to be executed in the fre
 ```sh
 env ASSUME_ALWAYS_YES=YES pkg bootstrap
 pkg update
-pkg install git
+pkg install -y git
 ```
 
 ## Resources:

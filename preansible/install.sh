@@ -20,5 +20,4 @@ echo ""
 echo "[Stage] packages"
 pkg update
 pkg install -y $PACKAGES
-ln -s "$PYTHON_LINK_SRC" "$PYTHON_LINK_DEST}"
 echo ""
