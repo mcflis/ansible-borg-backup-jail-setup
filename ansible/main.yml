@@ -2,9 +2,21 @@
 - name: Setup jail for borg backup
   hosts: localhost
   connection: local
+  vars:
+    borg_user: borg
+    borg_user_password: borg
+    borg_user_salt: borg
   tasks:
     - name: Ensure sshd is started and enabled
       service:
         state: started
         name: sshd
         enabled: yes
+
+    - name: "Setup borg user {{ borg_user }}"
+      user:
+        name: "{{ borg_user }}"
+        password: "{{ borg_user_password | password_hash('sha512', borg_user_salt) }}"
+        update_password: always
+        state: present
+      when: borg_user_password is defined and borg_user_salt is defined
