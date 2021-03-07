@@ -4,7 +4,7 @@
   connection: local
   pre_tasks:
     - name: Include vars
-      include_tasks: "{{ item }}"
+      include_vars: "{{ item }}"
       with_first_found:
         - "../vars.yml"
         - "../default.vars.yml"
