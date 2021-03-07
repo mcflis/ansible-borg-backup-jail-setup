@@ -5,7 +5,7 @@ set -ef
 here=$(dirname "$0")
 
 echo "[Stage] config"
-example_conf_file="$here/../example.conf.sh"
+example_conf_file="$here/../default.conf.sh"
 conf_file="$here/../conf.sh"
 
 if [ ! -f "$conf_file" ]; then
