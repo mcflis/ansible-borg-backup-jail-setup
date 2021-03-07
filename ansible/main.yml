@@ -17,6 +17,9 @@
       user:
         name: "{{ borg_user }}"
         password: "{{ borg_user_password | password_hash('sha512', borg_user_salt) }}"
+        shell: /usr/local/bin/bash
+        groups:
+          - wheel
         update_password: always
         state: present
       when: borg_user_password is defined and borg_user_salt is defined
